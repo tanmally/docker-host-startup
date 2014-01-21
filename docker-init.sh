@@ -23,7 +23,7 @@ docker run -d -v /var/run/docker.sock:/docker.sock -name skydock -link skydns:sk
 domainname="<service>.$domain"
 echo "Docker service dicovery domain : *.$domain " 
 else
-docker run -d -p 172.30.1.1:53:53/udp -name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain docker.bbytes.com
+docker run -d -p 172.30.1.1:53:53/udp -name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain bbytes.com
 docker run -d -v /var/run/docker.sock:/docker.sock -name skydock -link skydns:skydns crosbymichael/skydock -ttl 30 -environment docker -s /docker.sock -domain bbytes.com
 domainname="<service>.docker.bbytes.com"
 echo "Docker service dicovery domain : *.docker.bbytes.com " 
