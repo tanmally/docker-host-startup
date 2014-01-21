@@ -20,8 +20,8 @@ if [ ! -z "$domain" ]
 then
 docker run -d -p  172.30.1.1:53:53/udp -name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain $domain
 docker run -d -v /var/run/docker.sock:/docker.sock -name skydock -link skydns:skydns crosbymichael/skydock -ttl 30 -environment docker -s /docker.sock -domain $domain
-domainname="<service>.$domain"
-echo "Docker service dicovery domain : *.$domain " 
+domainname="<service>.docker.$domain"
+echo "Docker service dicovery domain : *docker.$domain " 
 else
 docker run -d -p 172.30.1.1:53:53/udp -name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain bbytes.com
 docker run -d -v /var/run/docker.sock:/docker.sock -name skydock -link skydns:skydns crosbymichael/skydock -ttl 30 -environment docker -s /docker.sock -domain bbytes.com
