@@ -38,9 +38,7 @@ echo 'Docker host machine dns name server is updated to dicover service based on
 echo "try pinging the $domainname"
 echo "the value of <service> is the second part of image name for eg: it is 'tomcat' for image with name 'bbytes/tomcat'"
 
-sudo ufw enable
-sudo ufw allow allow from 172.30.1.1/24
-echo "done running ufw rules"
+
 
 
 
