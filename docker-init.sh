@@ -32,7 +32,7 @@ fi
 
 echo "Docker dns and service dicovery service started "
 
-echo 'nameserver 172.30.1.1' >> /etc/resolvconf/resolv.conf.d/head
+echo 'nameserver 172.30.1.1' > /etc/resolvconf/resolv.conf.d/head
 sudo ifdown --exclude=lo -a && sudo ifup --exclude=lo -a
 echo 'Docker host machine dns name server is updated to dicover service based on domain address'
 echo "try pinging the $domainname"
